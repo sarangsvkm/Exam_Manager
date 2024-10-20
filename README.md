@@ -1,5 +1,5 @@
-
 Django Exam Manager
+
 This project is a simple Django application for managing exam details. It allows users to view, add, and manage exams with essential information such as subject name, subject code, exam date, exam time, semester, and exam slot.
 
 Features
