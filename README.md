@@ -16,7 +16,7 @@ This project is a simple Django application for managing exam details. It allows
 # Installation
   1.Clone the repository:
 
-       git clone <repository-url>
+       git clone https://github.com/sarangsvkm/Exam_Manager.git
        cd exam_manager
   2.Create a virtual environment:
 
