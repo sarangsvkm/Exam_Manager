@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-4">Add Exam</h2>
+
+{% if error %}
+<div class="alert alert-danger">{{ error|join:", " }}</div>
+{% endif %}
+
+<form method="POST" action="{% url 'add_exam' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="subject_name" class="form-label">Subject Name</label>
+        <input type="text" class="form-control" id="subject_name" name="subject_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="subject_code" class="form-label">Subject Code</label>
+        <input type="text" class="form-control" id="subject_code" name="subject_code" required>
+    </div>
+    <div class="mb-3">
+        <label for="exam_date" class="form-label">Exam Date</label>
+        <input type="date" class="form-control" id="exam_date" name="exam_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="exam_time" class="form-label">Exam Time</label>
+        <select class="form-select" id="exam_time" name="exam_time" required>
+            <option value="09:00:00">Forenoon (9 AM)</option>
+            <option value="13:00:00">Afternoon (1 PM)</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="semester" class="form-label">Semester</label>
+        <input type="text" class="form-control" id="semester" name="semester" required>
+    </div>
+    <div class="mb-3">
+        <label for="exam_slot" class="form-label">Exam Slot</label>
+        <input type="text" class="form-control" id="exam_slot" name="exam_slot" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Exam</button>
+</form>
+
+<a href="{% url 'exam_list' %}" class="btn btn-secondary mt-3">Back to Exam List</a>
+
+{% endblock %}

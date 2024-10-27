@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}  <!-- Add this line -->
+
+{% block content %}
+<h2 class="mt-4">Exam Details</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Subject Name</th>
+            <th>Subject Code</th>
+            <th>Exam Date</th>
+            <th>Exam Time</th>
+            <th>Semester</th>
+            <th>Slot</th>
+            <th>Days Until Exam</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exam in exams %}
+        <tr>
+            <td>{{ exam.subject_name }}</td>
+            <td>{{ exam.subject_code }}</td>
+            <td>{{ exam.exam_date }}</td>
+            <td>{{ exam.exam_time }}</td>
+            <td>{{ exam.semester }}</td>
+            <td>{{ exam.exam_slot }}</td>
+            <td>
+                {% if exam.days_until > 0 %}
+                    {{ exam.days_until }} days
+                {% elif exam.days_until == 0 %}
+                    Today
+                {% else %}
+                    Passed
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

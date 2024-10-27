@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-4">Update Exam Details for Exam ID: {{ exam.id }}</h2>
+<form method="POST" action="{% url 'update_exam' exam.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update Exam</button>
+</form>
+<a href="{% url 'exam_list' %}" class="btn btn-secondary mt-3">Back to Exam List</a>
+{% endblock %}
